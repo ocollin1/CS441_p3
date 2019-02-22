@@ -51,7 +51,7 @@
 		C8200B8F221743D900EA5095 /* TankMeLaterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TankMeLaterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8200B93221743D900EA5095 /* TankMeLaterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TankMeLaterUITests.m; sourceTree = "<group>"; };
 		C8200B95221743D900EA5095 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C879962722187E7E00C2F2CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C879962722187E7E00C2F2CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = /Users/ocollin1/CS/temp/CS441_p3/TankMeLater/TankMeLater/Assets.xcassets; sourceTree = "<absolute>"; };
 		C87996292218826D00C2F2CA /* activityMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activityMain.h; sourceTree = "<group>"; };
 		C879962A2218826D00C2F2CA /* activityMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = activityMain.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
