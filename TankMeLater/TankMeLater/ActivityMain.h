@@ -22,17 +22,22 @@
 */
 
 #import <UIKit/UIKit.h>
+#import <UIKit/UIGestureRecognizerSubclass.h>
 //#import "Boulder.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GameView : UIView
+@interface ActivityMain : UIView
 @property (nonatomic, strong) UIImageView *tank;
-@property float dx, dy;
+@property float x,y,dx, dy;
 @property (nonatomic, strong) NSTimer *timer;
 //@property BOOL rotating_l, rotating_r;
 
 //@property (nonatomic, strong) NSMutableArray *boulders;
+- (IBAction)right:(UIButton *)sender;
+
+
+
 @end
 
 NS_ASSUME_NONNULL_END

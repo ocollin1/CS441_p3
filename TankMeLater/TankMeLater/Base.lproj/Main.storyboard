@@ -35,7 +35,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mde-Mb-r4D">
                                 <rect key="frame" x="278" y="244" width="111" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Start"/>
                                 <connections>
                                     <segue destination="hVD-yL-IcR" kind="presentation" id="2he-X9-qil"/>
                                 </connections>
@@ -50,36 +50,46 @@
             </objects>
             <point key="canvasLocation" x="-151.19999999999999" y="124.58770614692655"/>
         </scene>
-        <!--Activity Main-->
+        <!--View Controller-->
         <scene sceneID="Evp-aE-Acv">
             <objects>
-                <viewController id="hVD-yL-IcR" customClass="activityMain" sceneMemberID="viewController">
+                <viewController id="hVD-yL-IcR" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lDH-5C-sg8"/>
                         <viewControllerLayoutGuide type="bottom" id="sR2-Su-I7i"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QFp-vQ-XlG">
+                    <view key="view" contentMode="scaleToFill" id="QFp-vQ-XlG" customClass="ActivityMain">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POY-hy-l9i">
-                                <rect key="frame" x="20" y="315" width="60" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="LeftArrow" image="kisspng-arrowL-computer-icons-symbol-clip-art-5b0831187644c1.5022453415272635124844 copy-1"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPn-cP-kjG">
-                                <rect key="frame" x="88" y="315" width="60" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="RightArrow" image="kisspng-arrowR-computer-icons-symbol-clip-art-5b0831187644c1.5022453415272635124844 copy copy"/>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tank" translatesAutoresizingMaskIntoConstraints="NO" id="Ggb-9D-JjS">
-                                <rect key="frame" x="48" y="257" width="84" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vSf-sX-VIW">
                                 <rect key="frame" x="0.0" y="306" width="667" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POY-hy-l9i">
+                                <rect key="frame" x="20" y="315" width="60" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="LeftArrow" image="leftArrow.png"/>
+                                <connections>
+                                    <action selector="left:" destination="QFp-vQ-XlG" eventType="touchUpInside" id="U4C-A4-YxS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPn-cP-kjG">
+                                <rect key="frame" x="88" y="315" width="60" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="RightArrow" image="rightArrow.png"/>
+                                <connections>
+                                    <action selector="right:" destination="QFp-vQ-XlG" eventType="touchUpInside" id="2AY-5u-CMu"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sPI-QN-jZR">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="307"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="C6k-sT-7pK" appends="YES" id="FFm-8K-Fvf"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -88,13 +98,13 @@
                     <size key="freeformSize" width="667" height="375"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fiu-e2-omY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="C6k-sT-7pK"/>
             </objects>
             <point key="canvasLocation" x="976.79999999999995" y="124.58770614692655"/>
         </scene>
     </scenes>
     <resources>
-        <image name="kisspng-arrowL-computer-icons-symbol-clip-art-5b0831187644c1.5022453415272635124844 copy-1" width="512" height="512"/>
-        <image name="kisspng-arrowR-computer-icons-symbol-clip-art-5b0831187644c1.5022453415272635124844 copy copy" width="512" height="512"/>
-        <image name="tank" width="1920" height="1113"/>
+        <image name="leftArrow.png" width="1600" height="655"/>
+        <image name="rightArrow.png" width="1600" height="655"/>
     </resources>
 </document>
