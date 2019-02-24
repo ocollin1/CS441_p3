@@ -115,8 +115,11 @@
 		C8200B6D221743D900EA5095 /* TankMeLater */ = {
 			isa = PBXGroup;
 			children = (
+				C8A7743F2221B82A00E72BAA /* rightArrow.png */,
+				C81F60DB22230CB7005B2D1B /* tank.png */,
 				C81F60E2222314FA005B2D1B /* Shot.png */,
 				C81F60D922230C90005B2D1B /* Assets.xcassets */,
+				C8A774412221B83100E72BAA /* leftArrow.png */,
 				C8200B71221743D900EA5095 /* AppDelegate.h */,
 				C8200B72221743D900EA5095 /* AppDelegate.m */,
 				C8200B74221743D900EA5095 /* ViewController.h */,
@@ -125,9 +128,6 @@
 				C87996292218826D00C2F2CA /* ActivityMain.h */,
 				C879962A2218826D00C2F2CA /* ActivityMain.m */,
 				C8200B7C221743D900EA5095 /* LaunchScreen.storyboard */,
-				C81F60DB22230CB7005B2D1B /* tank.png */,
-				C8A7743F2221B82A00E72BAA /* rightArrow.png */,
-				C8A774412221B83100E72BAA /* leftArrow.png */,
 				C8200B6F221743D900EA5095 /* main.m */,
 				C81F60DF22231390005B2D1B /* Shot.h */,
 				C81F60E0222313B0005B2D1B /* Shot.m */,
