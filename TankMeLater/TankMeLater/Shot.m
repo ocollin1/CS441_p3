@@ -16,6 +16,8 @@
     if (self)
     {
         [self setImage:[UIImage imageNamed:@"Shot.png"]];
+        self.dx = 0;
+        self.dy = 0;
     }
     
     return self;

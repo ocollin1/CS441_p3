@@ -81,52 +81,31 @@
         //Code to handle the gesture
         CGPoint target = [recognizer locationInView:[recognizer.view superview]];
         CGPoint tankPos = [tank center];
+        //printf("%f, %f\n", tankPos.x, tankPos.y);
     
         Shot *s = [[Shot alloc] initWithFrame:CGRectMake(tankPos.x+10, tankPos.y-50, 60, 60)];
-    
-        /*
-        CGPoint originPoint = CGPointMake(target.x - s.x, target.y - s.y); // get origin point to origin by subtracting end from start
-        float bearingRadians = atan2f(originPoint.y, originPoint.x); // get bearing in radians
-        float bearingDegrees = bearingRadians * (180.0 / M_PI); // convert to degrees
-        bearingDegrees = (bearingDegrees > 0.0 ? bearingDegrees : (360.0 + bearingDegrees));
-        */
-        
-        
+
         //find angle
-        float difX = target.x - s.x;
-        float difY = target.y - s.y;
+        float difTandTankX = target.x - tankPos.x;
+        float difTandTankY = tankPos.y - target.y;
+        s.angle = atan2f(difTandTankY,difTandTankX);
         
-        //find quadrant
         
-        
-        if( difX>=0 && difY>=0 ){
-            
-            s.angle = tan(difY/difX);
-            s.dx = 20 * cos(s.angle);
-            s.dy = 20 * sin(s.angle);
-            
-        } else if (difX<0 && difY>=0) {
-            s.angle = tan(difX/difY);
-            s.dx = 20 * cos(s.angle);
-            s.dy = 20 * sin(s.angle);
-            
-        } else if ( difX<0 && difY<0 ) {
-            s.angle = tan(difY/difX);
-            s.dx = 20 * cos(s.angle);
-            s.dy = 20 * sin(s.angle);
-            
-        } else {
-            s.angle = tan(difX/difY);
-            s.dx = 20 * cos(s.angle);
-            s.dy = 20 * sin(s.angle);
+        if(s.angle<0){
+            s.angle += 2*M_PI;
         }
-        */
-        
-        //s.angle = tan( difY / difX );
+        CGAffineTransform t = CGAffineTransformRotate(CGAffineTransformIdentity, (-1*s.angle));
+        [s setTransform:t];
+            
+        //printf("%f, %f : %f\n", difTandTankX, difTandTankY, s.angle);
+       
     
         //set speeds
-        s.dx = 20 * cos(s.angle);
-        s.dy = 20 * sin(s.angle);
+        float tempCos = cosf(s.angle);
+        float tempSin = sinf(s.angle);
+        s.dx = 20 * tempCos;
+        s.dy = -20 * tempSin;
+        //printf("%f, %f\n", s.dx, s.dy);
     
         [self addSubview:s];
         [shots addObject:s];
