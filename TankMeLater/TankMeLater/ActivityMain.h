@@ -29,8 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ActivityMain : UIView
 @property (nonatomic, strong) UIImageView *tank;
-@property float x,y,dx, dy;
+@property float x,y,dx, dy, reloadT;
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) NSMutableArray *shots;
 //@property BOOL rotating_l, rotating_r;
 
 //@property (nonatomic, strong) NSMutableArray *boulders;

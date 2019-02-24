@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C81F60DA22230C90005B2D1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C81F60D922230C90005B2D1B /* Assets.xcassets */; };
+		C81F60DC22230CB7005B2D1B /* tank.png in Resources */ = {isa = PBXBuildFile; fileRef = C81F60DB22230CB7005B2D1B /* tank.png */; };
+		C81F60E1222313B0005B2D1B /* Shot.m in Sources */ = {isa = PBXBuildFile; fileRef = C81F60E0222313B0005B2D1B /* Shot.m */; };
+		C81F60E3222314FA005B2D1B /* Shot.png in Resources */ = {isa = PBXBuildFile; fileRef = C81F60E2222314FA005B2D1B /* Shot.png */; };
 		C8200B70221743D900EA5095 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8200B6F221743D900EA5095 /* main.m */; };
 		C8200B73221743D900EA5095 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8200B72221743D900EA5095 /* AppDelegate.m */; };
 		C8200B76221743D900EA5095 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8200B75221743D900EA5095 /* ViewController.m */; };
@@ -17,7 +21,6 @@
 		C879962B2218826D00C2F2CA /* ActivityMain.m in Sources */ = {isa = PBXBuildFile; fileRef = C879962A2218826D00C2F2CA /* ActivityMain.m */; };
 		C8A774402221B82A00E72BAA /* rightArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C8A7743F2221B82A00E72BAA /* rightArrow.png */; };
 		C8A774422221B83100E72BAA /* leftArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C8A774412221B83100E72BAA /* leftArrow.png */; };
-		C8A774462221BBFB00E72BAA /* tank.png in Resources */ = {isa = PBXBuildFile; fileRef = C8A774452221BBFB00E72BAA /* tank.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C81F60D922230C90005B2D1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C81F60DB22230CB7005B2D1B /* tank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tank.png; path = Assets.xcassets/tank.imageset/tank.png; sourceTree = "<group>"; };
+		C81F60DF22231390005B2D1B /* Shot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shot.h; sourceTree = "<group>"; };
+		C81F60E0222313B0005B2D1B /* Shot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shot.m; sourceTree = "<group>"; };
+		C81F60E2222314FA005B2D1B /* Shot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shot.png; path = ../../../Downloads/Shot.png; sourceTree = "<group>"; };
 		C8200B6B221743D900EA5095 /* TankMeLater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TankMeLater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8200B6F221743D900EA5095 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C8200B71221743D900EA5095 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,7 +65,6 @@
 		C879962A2218826D00C2F2CA /* ActivityMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityMain.m; sourceTree = "<group>"; };
 		C8A7743F2221B82A00E72BAA /* rightArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rightArrow.png; path = ../../../Downloads/rightArrow.png; sourceTree = "<group>"; };
 		C8A774412221B83100E72BAA /* leftArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = leftArrow.png; path = ../../../Downloads/leftArrow.png; sourceTree = "<group>"; };
-		C8A774452221BBFB00E72BAA /* tank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tank.png; path = ../../../.Trash/tank.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +115,8 @@
 		C8200B6D221743D900EA5095 /* TankMeLater */ = {
 			isa = PBXGroup;
 			children = (
+				C81F60E2222314FA005B2D1B /* Shot.png */,
+				C81F60D922230C90005B2D1B /* Assets.xcassets */,
 				C8200B71221743D900EA5095 /* AppDelegate.h */,
 				C8200B72221743D900EA5095 /* AppDelegate.m */,
 				C8200B74221743D900EA5095 /* ViewController.h */,
@@ -116,9 +125,12 @@
 				C87996292218826D00C2F2CA /* ActivityMain.h */,
 				C879962A2218826D00C2F2CA /* ActivityMain.m */,
 				C8200B7C221743D900EA5095 /* LaunchScreen.storyboard */,
-				C8A774452221BBFB00E72BAA /* tank.png */,
+				C81F60DB22230CB7005B2D1B /* tank.png */,
 				C8A7743F2221B82A00E72BAA /* rightArrow.png */,
 				C8A774412221B83100E72BAA /* leftArrow.png */,
+				C8200B6F221743D900EA5095 /* main.m */,
+				C81F60DF22231390005B2D1B /* Shot.h */,
+				C81F60E0222313B0005B2D1B /* Shot.m */,
 				C8200B7F221743D900EA5095 /* Info.plist */,
 				C8200B6E221743D900EA5095 /* Supporting Files */,
 			);
@@ -128,7 +140,6 @@
 		C8200B6E221743D900EA5095 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C8200B6F221743D900EA5095 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -259,8 +270,10 @@
 			files = (
 				C8200B7E221743D900EA5095 /* LaunchScreen.storyboard in Resources */,
 				C8A774422221B83100E72BAA /* leftArrow.png in Resources */,
+				C81F60E3222314FA005B2D1B /* Shot.png in Resources */,
 				C8A774402221B82A00E72BAA /* rightArrow.png in Resources */,
-				C8A774462221BBFB00E72BAA /* tank.png in Resources */,
+				C81F60DA22230C90005B2D1B /* Assets.xcassets in Resources */,
+				C81F60DC22230CB7005B2D1B /* tank.png in Resources */,
 				C8200B79221743D900EA5095 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C81F60E1222313B0005B2D1B /* Shot.m in Sources */,
 				C8200B76221743D900EA5095 /* ViewController.m in Sources */,
 				C8200B73221743D900EA5095 /* AppDelegate.m in Sources */,
 				C8200B70221743D900EA5095 /* main.m in Sources */,
