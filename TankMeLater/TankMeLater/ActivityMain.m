@@ -9,10 +9,12 @@
 #import "ActivityMain.h"
 #import "Shot.h"
 #define RELOAD ((float) 5)
+#define JET_TIME ((int) 10)
 
 @implementation ActivityMain:UIView
 @synthesize tank;
 @synthesize shots;
+@synthesize jets;
 
 
 /*
@@ -37,6 +39,7 @@
         [tank setImage:[UIImage imageNamed:@"tank.png"]];
         [self addSubview:tank];
         self.reloadT = RELOAD;
+        self.newJ = JET_TIME;
         
         UITapGestureRecognizer *tapTargeter = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(targeter:)];
         [tapTargeter setNumberOfTapsRequired:1];
@@ -45,6 +48,7 @@
         
         shots = [[NSMutableArray alloc] init];
         
+        jets = [[NSMutableArray alloc] init];
         
         self.timer = [NSTimer scheduledTimerWithTimeInterval:.1 repeats:YES block:^(NSTimer * _Nonnull timer) {
             [self performSelectorOnMainThread:@selector(tick:) withObject:self.timer waitUntilDone:NO];
@@ -148,6 +152,21 @@
         
         
     }
+    
+    //randomly build jets
+    if(self.newJ > 0){
+        self.newJ--;
+    } else {
+        
+        int direction = arc4random_uniform(1); //either right or left
+        int height = arc4random_uniform(300); //y coord
+        int dropTime = arc4random_uniform(20); //time jet drops bomb
+        
+        
+        
+        self.newJ = JET_TIME;
+    }
+    
     
 }
 
