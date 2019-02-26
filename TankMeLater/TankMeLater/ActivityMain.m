@@ -11,6 +11,7 @@
 #import "Jet.h"
 #define RELOAD ((float) 5)
 #define JET_TIME ((int) 30)
+#define SHOT_SPEED ((int) 30)
 
 @implementation ActivityMain:UIView
 @synthesize tank;
@@ -108,8 +109,8 @@
         //set speeds
         float tempCos = cosf(s.angle);
         float tempSin = sinf(s.angle);
-        s.dx = 20 * tempCos;
-        s.dy = -20 * tempSin;
+        s.dx = SHOT_SPEED* tempCos;
+        s.dy = -SHOT_SPEED * tempSin;
         //printf("%f, %f\n", s.dx, s.dy);
     
         [self addSubview:s];
@@ -159,19 +160,20 @@
         self.newJ--;
     } else {
         
-        int direction = arc4random_uniform(2); //either right or left
-        int height = arc4random_uniform(300); //y coord
+        int direction = arc4random_uniform(10); //either right or left
+        int height = arc4random_uniform(200); //y coord
         int dropTime = arc4random_uniform(20); //time jet drops bomb
         
         Jet *j;
-        if(direction == 1){
+        if(direction < 5){
             j = [[Jet alloc] initWithFrame:CGRectMake(0, height, 60, 60)];
             [j setImage:[UIImage imageNamed:@"rightJet"]];
-            [j setDx:(rand() % 20)+1];
+            [j setDx:(rand() % 14)+6];
         } else {
-            j = [[Jet alloc] initWithFrame:CGRectMake(r.size.width, height, 60, 60)];
+            j = [[Jet alloc] initWithFrame:CGRectMake(r.size.width-50, height, 60, 60)];
             [j setImage:[UIImage imageNamed:@"leftJet"]];
-            [j setDx:(rand() % 20)+1 * -1];
+            [j setDx:(rand() % 14)+6];
+            j.dx *= -1;
         }
         j.dropTime = dropTime;
         [self addSubview:j];
@@ -192,6 +194,18 @@
             j.dropTime--;
         }
         if ((p.x < 0) || (p.x > r.size.width)){ [j removeFromSuperview]; }
+        
+        //collision detection
+        for (Shot *s in shots)
+        {
+            if(CGRectIntersectsRect(j.frame, s.frame)){
+                //j.dx = 0;
+                //[j setImage:[UIImage imageNamed:@"JetEx"]];
+                [j removeFromSuperview];
+                [s removeFromSuperview];
+            }
+        }
+        
         [j setCenter:p];
     }
     

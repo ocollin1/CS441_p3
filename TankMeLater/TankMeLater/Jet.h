@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) float x, y;
 @property (nonatomic) float dx, dy;
 @property (nonatomic) int dropTime;
+@property (nonatomic) float angle;
 @end
 
 NS_ASSUME_NONNULL_END
