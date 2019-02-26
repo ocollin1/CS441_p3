@@ -15,6 +15,7 @@
     self = [super initWithFrame:frame];
     if (self)
     {
+        
         self.dx = 0;
         self.dy = 0;
     }
