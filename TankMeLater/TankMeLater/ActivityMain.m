@@ -12,6 +12,7 @@
 #define RELOAD ((float) 5)
 #define JET_TIME ((int) 30)
 #define SHOT_SPEED ((int) 30)
+#define TANK_SPEED ((int) 10)
 
 @implementation ActivityMain:UIView
 @synthesize tank;
@@ -37,11 +38,12 @@
     self = [super initWithCoder:aDecoder];
     if (self)
     {
-        tank = [[UIImageView alloc] initWithFrame:CGRectMake(50, 225, 100, 100)];
+        tank = [[UIImageView alloc] initWithFrame:CGRectMake(50, 230, 70, 70)];
         [tank setImage:[UIImage imageNamed:@"tank.png"]];
         [self addSubview:tank];
         self.reloadT = RELOAD;
         self.newJ = JET_TIME;
+        self.is_destroyed = false;
         
         UITapGestureRecognizer *tapTargeter = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(targeter:)];
         [tapTargeter setNumberOfTapsRequired:1];
@@ -63,8 +65,8 @@
 #pragma mark
 -(IBAction)right:(id)sender
 {
-    if (self.dx < 5){
-        self.dx += 5;
+    if (self.dx < TANK_SPEED){
+        self.dx += TANK_SPEED;
     }
     
     //self.dy += 5 * sin(self.angle);
@@ -73,8 +75,8 @@
 
 -(IBAction)left:(id)sender
 {
-    if (self.dx > -5){
-        self.dx -= 5;
+    if (self.dx > -TANK_SPEED){
+        self.dx -= TANK_SPEED;
     }
     //self.dy += 5 * sin(self.angle);
     // NSLog(@"Thrust %f %f", self.dx, self.dy);
@@ -89,7 +91,7 @@
         CGPoint tankPos = [tank center];
         //printf("%f, %f\n", tankPos.x, tankPos.y);
     
-        Shot *s = [[Shot alloc] initWithFrame:CGRectMake(tankPos.x+10, tankPos.y-50, 60, 60)];
+        Shot *s = [[Shot alloc] initWithFrame:CGRectMake(tankPos.x+10, tankPos.y-50, 50, 50)];
 
         //find angle
         float difTandTankX = target.x - tankPos.x;
@@ -112,6 +114,8 @@
         s.dx = SHOT_SPEED* tempCos;
         s.dy = -SHOT_SPEED * tempSin;
         //printf("%f, %f\n", s.dx, s.dy);
+        
+        s.is_bomb = false;
     
         [self addSubview:s];
         [shots addObject:s];
@@ -151,6 +155,11 @@
         p.y += [s dy];
         [s setCenter:p];
         if (((p.x < 0) || (p.x > r.size.width)) || ((p.y < 0)||(p.y > r.size.height))){ [s removeFromSuperview]; }
+        if(s.is_bomb && CGRectIntersectsRect(tank.frame, s.frame)){
+            
+            self.is_destroyed = true;
+            
+        }
         
         
     }
@@ -161,9 +170,7 @@
     } else {
         
         int direction = arc4random_uniform(10); //either right or left
-        int height = arc4random_uniform(200); //y coord
-        int dropTime = arc4random_uniform(20); //time jet drops bomb
-        
+        int height = arc4random_uniform(175); //y coord
         Jet *j;
         if(direction < 5){
             j = [[Jet alloc] initWithFrame:CGRectMake(0, height, 60, 60)];
@@ -175,7 +182,6 @@
             [j setDx:(rand() % 14)+6];
             j.dx *= -1;
         }
-        j.dropTime = dropTime;
         [self addSubview:j];
         [jets addObject:j];
         
@@ -191,14 +197,27 @@
         //check dropped bomb
         if(j.dropTime == 0){
             //drop bomb!
+            
+            Shot *s = [[Shot alloc] initWithFrame:CGRectMake(p.x, p.y, 30, 30)];
+            s.dx = 0;
+            s.is_bomb = true;
+            s.dy = SHOT_SPEED;
+            s.angle = M_PI/2;
+            CGAffineTransform t = CGAffineTransformRotate(CGAffineTransformIdentity, (s.angle));
+            [s setTransform:t];
+            [self addSubview:s];
+            [shots addObject:s];
+            
+            
             j.dropTime--;
         }
+        j.dropTime--;
         if ((p.x < 0) || (p.x > r.size.width)){ [j removeFromSuperview]; }
         
         //collision detection
         for (Shot *s in shots)
         {
-            if(CGRectIntersectsRect(j.frame, s.frame)){
+            if(CGRectIntersectsRect(j.frame, s.frame) && !s.is_bomb){
                 //j.dx = 0;
                 //[j setImage:[UIImage imageNamed:@"JetEx"]];
                 [j removeFromSuperview];
@@ -207,6 +226,16 @@
         }
         
         [j setCenter:p];
+    }
+    
+    //check is destroyed.
+    if(self.is_destroyed){
+        
+        //end
+        [tank setImage:[UIImage imageNamed:@"endEx"]];
+        
+        //figure out segue
+        
     }
     
     

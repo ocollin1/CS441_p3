@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property float x,y,dx, dy, reloadT, newJ;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSMutableArray *shots, *jets;
+@property (nonatomic) BOOL is_destroyed;
 //@property BOOL rotating_l, rotating_r;
 
 //@property (nonatomic, strong) NSMutableArray *boulders;

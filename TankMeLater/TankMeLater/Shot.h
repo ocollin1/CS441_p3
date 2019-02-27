@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) float x, y;
 @property (nonatomic) float dx, dy;
 @property (nonatomic) float angle;
+@property (nonatomic) BOOL is_bomb;
 @end
 
 NS_ASSUME_NONNULL_END

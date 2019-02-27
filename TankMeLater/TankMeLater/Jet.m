@@ -16,6 +16,7 @@
     if (self)
     {
         
+        self.dropTime = rand() % 30;
         self.dx = 0;
         self.dy = 0;
     }
