@@ -17,6 +17,7 @@
     {
         
         self.dropTime = rand() % 30;
+        self.notHit = true;
         self.dx = 0;
         self.dy = 0;
     }

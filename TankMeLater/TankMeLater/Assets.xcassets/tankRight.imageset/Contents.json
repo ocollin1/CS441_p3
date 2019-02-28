@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "tank.png",
+      "filename" : "tankRight.png",
       "scale" : "1x"
     },
     {
